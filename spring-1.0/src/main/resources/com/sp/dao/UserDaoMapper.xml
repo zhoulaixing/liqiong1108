@@ -1,0 +1,14 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sp.dao.UserDao">
+
+    <select id="findAll" resultType="com.sp.pojo.User">
+        select * from is_user
+    </select>
+
+    <insert id="addUser" parameterType="com.sp.pojo.User" useGeneratedKeys="true" keyProperty="user_id">
+        insert into is_user values (is_user_sql.nextval,#{userName},#{password},#{gender},sysdate,#{birthday})
+    </insert>
+
+</mapper>
